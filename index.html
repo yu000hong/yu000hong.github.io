@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div id="home">
+  <h1>{{ site.title }}</h1>
+  <hr />
+
+  <ul class="posts">
+    {% for post in paginator.posts %}
+      <li><span>{{ post.date | date: "%Y-%m-%d" }}</span>&nbsp;&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <!-- Pagination links -->
+  {% if paginator.total_pages > 1 %}
+    <ul class="pagination pagination-sm">
+      {% if paginator.previous_page %}
+        <li><a href="/" title="第一页">第一页</a></li>
+        {% if paginator.previous_page > 1 %}
+        <li><a href="/page/{{ paginator.previous_page }}" title="上一页">上一页</a></li>
+        {% else %}
+        <li><a href="/" title="上一页">上一页</a></li>
+        {% endif %}
+      {% else %}
+        <li class="disabled"><a title="第一页">第一页</a></li>
+        <li class="disabled"><a title="上一页">上一页</a></li>
+      {% endif %}
+      {% if paginator.next_page %}
+        <li class="disabled"><span>{{ paginator.next_page | minus:1 }}／{{ paginator.total_pages }}</span></li>
+      {% else %}
+        <li class="disabled"><span>{{ paginator.total_pages }}／{{ paginator.total_pages }}</span></li>
+      {% endif %}
+      {% if paginator.next_page %}
+        <li><a href="/page/{{ paginator.next_page }}" title="下一页">下一页</a></li>
+        <li><a href="/page/{{ paginator.total_pages }}" title="最后一页">最后一页</a></li>
+      {% else %}
+        <li class="disabled"><a title="下一页">下一页</a></li>
+        <li class="disabled"><a title="最后一页">最后一页</a></li>
+      {% endif %}
+    </ul>
+  {% endif %}
+</div><!-- end #home -->
