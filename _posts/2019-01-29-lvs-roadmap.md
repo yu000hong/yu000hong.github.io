@@ -2,7 +2,6 @@
 layout: post
 title:  "Linux Virtual Server 学习路线图"
 date:   2019-01-29 11:18:23 +0800
-categories: [LVS]
 tags: [LVS]
 ---
 
