@@ -47,3 +47,16 @@ tags: [Redis]
 
 [Redis分布式锁解决方案](https://juejin.im/post/5b8737cdf265da43737ea13a)
 
+[用最少的机器支撑万亿级访问，微博6年Redis优化历程](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653547263&idx=1&sn=fe484b24660b7e1dc4beabca71fe1cb1&scene=21#wechat_redirect)
+
+[Redis实战：如何构建类微博的亿级社交平台](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653547053&idx=1&sn=833fddbc83379d9cac8d7f757343412e&scene=21#wechat_redirect)
+
+[Codis作者黄东旭细说分布式Redis架构设计和踩过的那些坑们](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=208733458&idx=1&sn=691bfde670fb2dd649685723f7358fea&scene=21#wechat_redirect)
+
+[Redis架构之防雪崩设计：网站不宕机背后的兵法](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653548432&idx=1&sn=ac120e1ffca7c2007c0bc5df51e03d7b&chksm=813a7e08b64df71ec7b8b6afc2a36a8ff1d780db54a395b58a9f18f084080c09de514e999834&scene=21#wechat_redirect)
+
+[近千节点的Redis Cluster高可用集群案例:优酷蓝鲸优化实战](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653547585&idx=1&sn=9a664b16f656f757632cd4eb29f9a5dc&scene=21#wechat_redirect)
+
+[同程旅游缓存系统设计:如何打造Redis时代的完美体系(含PPT)](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653547622&idx=1&sn=199cd6d8e3dff7c839935a7613d43e76&scene=21#wechat_redirect)
+
+[挑战Kafka！Redis5.0重量级特性Stream尝鲜](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653549949&idx=1&sn=7f6c4cf8642478574718ed0f8cf61409&chksm=813a64e5b64dedf357cef4e2894e33a75e3ae51575a4e3211c1da23008ef79173962e9a83c73&scene=21#wechat_redirect)
