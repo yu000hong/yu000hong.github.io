@@ -40,7 +40,7 @@ redis.h中**redisServer**结构中包含4个与慢日志有关的字段：
 * list *`slowlog`：保存了所有慢查询日志的链表
 * long long `slowlog_entry_id`：下一条慢查询日志的 ID
 
-slowlog类型是list，是一个双端链表，链表元素的数据类型为slowlogEntry，当慢日志列表已经达到条数上线的时候，每生成一条慢日志slowlogEntry，就会在slowlog这个双端链表的前端插入这条慢日志，并同时删掉后端最后一条慢日志。
+slowlog类型是list*，是一个双端链表，链表元素的数据类型为slowlogEntry，当慢日志列表已经达到条数上限的时候，每生成一条慢日志slowlogEntry，就会在slowlog这个双端链表的前端插入这条慢日志，并同时删掉后端最后一条慢日志。
 
 slowlog_entry_id是一个全局的ID，每条慢日志都具有一个从slowlog_entry_id获取的全局唯一ID，每生成一条慢日志slowlog_entry_id就会自动加一。
 
