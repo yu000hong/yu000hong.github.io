@@ -5,7 +5,7 @@ date:   2019-02-26 09:45:00 +0800
 tags: [Redis, 缓存, 源码分析]
 ---
 
-Redis进行内存分配使用的是zmalloc，对应源文件为：`zmallo.h`，`zmalloc.c`。
+Redis进行内存分配使用的是zmalloc，对应源文件为：`zmalloc.h`，`zmalloc.c`。
 
 > zmalloc - total amount of allocated memory aware version of malloc()
 
