@@ -5,6 +5,15 @@ date:   2019-03-27 08:50:00 +0800
 tags: [对象池, 连接池, 线程池]
 ---
 
+与空闲对象驱逐相关的**配置参数**有：
+
+- evictionPolicyClassName
+- timeBetweenEvictionRunsMillis
+- minEvictableIdleTimeMillis
+- softMinEvictableIdleTimeMillis
+- numTestsPerEvictionRun
+- evictorShutdownTimeoutMillis
+
 与空闲对象驱逐相关的**接口**或**类**有：
 
 - EvictionPolicy
@@ -15,14 +24,19 @@ tags: [对象池, 连接池, 线程池]
 - EvictionIterator
 - Evictor
 
-与空闲对象驱逐相关的**配置参数**有：
+## 配置参数
 
-- evictionPolicyClassName
-- minEvictableIdleTimeMillis
-- softMinEvictableIdleTimeMillis
-- numTestsPerEvictionRun
-- evictorShutdownTimeoutMillis
-- timeBetweenEvictionRunsMillis
+### evictionPolicyClassName
+
+`evictionPolicyClassName`参数指定判断空闲对象是否应该被驱逐的策略类，默认值为：**org.apache.commons.pool2.impl.DefaultEvictionPolicy**，这个类必须实现接口`EvictionPolicy`。这个参数不能设置为null，并且如果设置的类无法加载或没有实现EvictionPolicy接口，都将直接抛出异常。
+
+### timeBetweenEvictionRunsMillis
+
+控制驱逐线程多长时间执行一次，单位毫秒。如果其值为负数或0，那么将不会开启空闲对象驱逐线程。
+
+### minEvictableIdleTimeMillis & softMinEvictableIdleTimeMillis
+
+这两个参数都是用于为空闲对象设置一个空闲时间限制，softMinEvictableIdleTimeMillis为软限制，minEvictableIdleTimeMillis为硬限制。
 
 ## Evictor
 
@@ -187,28 +201,6 @@ public class DefaultEvictionPolicy<T> implements EvictionPolicy<T> {
 
 默认情况下，我们是使用DefaultEvictionPolicy做为默认驱逐策略。同时，我们也可以自己实现驱逐策略，进行驱逐相关的定制化。驱逐策略配置参数为：`evictionPolicyClassName`
 
-
-## evictionPolicyClassName
-
-`evictionPolicyClassName`参数指定判断空闲对象是否应该被驱逐的策略类，默认值为：**org.apache.commons.pool2.impl.DefaultEvictionPolicy**，这个类必须实现接口`EvictionPolicy`。
-
-看一下源码：
-
-{% highlight java %}
-public class DefaultEvictionPolicy<T> implements EvictionPolicy<T> {
-
-    @Override
-    public boolean evict(final EvictionConfig config, final PooledObject<T> underTest, final int idleCount) {
-        if ((config.getIdleSoftEvictTime() < underTest.getIdleTimeMillis() &&
-                config.getMinIdle() < idleCount) ||
-                config.getIdleEvictTime() < underTest.getIdleTimeMillis()) {
-            return true;
-        }
-        return false;
-    }
-
-}
-{% endhighlight %}
 
 
 
