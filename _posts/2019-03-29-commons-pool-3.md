@@ -1,7 +1,7 @@
 ---
 layout: post
 title: commons-pool 源码分析：空闲对象驱逐策略
-date:   2019-03-27 08:50:00 +0800
+date:   2019-03-29 10:20:00 +0800
 tags: [对象池, 连接池, 线程池]
 ---
 
@@ -36,7 +36,45 @@ tags: [对象池, 连接池, 线程池]
 
 ### minEvictableIdleTimeMillis & softMinEvictableIdleTimeMillis
 
-这两个参数都是用于为空闲对象设置一个空闲时间限制，softMinEvictableIdleTimeMillis为软限制，minEvictableIdleTimeMillis为硬限制。
+这两个参数都是用于为空闲对象设置一个空闲时间限制，softMinEvictableIdleTimeMillis为软限制，minEvictableIdleTimeMillis为硬限制。我们在设置这两个值的时候，应该保证硬限制时间大于等于软限制时间，即：minEvictableIdleTimeMillis>=softMinEvictableIdleTimeMillis。
+
+`DefaultEvictionPolicy`的实现：
+
+- 当对象的空闲时间大于硬限制时间时，对象将被驱逐
+- 当对象的空闲时间小于硬限制但大于软限制时间，并且当前空闲对象总数大于`minIdle`时，对象将被驱逐
+
+### numTestsPerEvictionRun
+
+每次执行驱逐线程的时候，需要检测多少个空闲对象。当然，我们每次执行驱逐线程的时候最多只会检测空闲对象列表里的所有对象，可以将`numTestsPerEvictionRun`设置为一个固定值，每次只检测固定数量的空闲对象，也可以将`numTestsPerEvictionRun`设置为负数，每次只检测空闲对象总数的特定百分比数量的空闲对象（例如，设置为-2将检测50%的空闲对象）。
+
+看看源码：
+
+{% highlight java %}
+private int getNumTests() {
+    final int numTestsPerEvictionRun = getNumTestsPerEvictionRun();
+    if (numTestsPerEvictionRun >= 0) {
+        //检测固定数量的空闲对象
+        return Math.min(numTestsPerEvictionRun, idleObjects.size());
+    }
+    //检测特定百分比数量的空闲对象
+    return (int) (Math.ceil(idleObjects.size() /
+            Math.abs((double) numTestsPerEvictionRun)));
+}
+{% endhighlight %}
+
+### evictorShutdownTimeoutMillis
+
+当我们关闭Evictor线程的时候，会设置一个超时时间，这个超时时间就是`evictorShutdownTimeoutMillis`。
+
+{% highlight java %}
+//Evictor线程最终是在总数量为1的线程池里执行的
+executor = new ScheduledThreadPoolExecutor(1, new EvictorThreadFactory());
+//调用cancel()方法关闭Evictor线程
+EvictionTimer.cancel(evictor, evictorShutdownTimeoutMillis, MILLISECONDS);
+//cancel()方法里面会调用线程池的shutdown()和awaitTermination()方法
+executor.shutdown();
+executor.awaitTermination(evictorShutdownTimeoutMillis, MILLISECONDS);
+{% endhighlight %}
 
 ## Evictor
 
@@ -199,7 +237,7 @@ public class DefaultEvictionPolicy<T> implements EvictionPolicy<T> {
 }
 {% endhighlight %}
 
-默认情况下，我们是使用DefaultEvictionPolicy做为默认驱逐策略。同时，我们也可以自己实现驱逐策略，进行驱逐相关的定制化。驱逐策略配置参数为：`evictionPolicyClassName`
+默认情况下，我们是使用DefaultEvictionPolicy做为默认驱逐策略。同时，我们也可以自己实现驱逐策略，进行驱逐相关的定制化。驱逐策略配置参数为：`evictionPolicyClassName`。
 
 
 
