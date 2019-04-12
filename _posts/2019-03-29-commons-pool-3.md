@@ -24,6 +24,8 @@ tags: [对象池, 连接池, 线程池]
 - EvictionIterator
 - Evictor
 
+<!-- more -->
+
 ## 配置参数
 
 ### evictionPolicyClassName

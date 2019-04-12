@@ -11,6 +11,8 @@ Redis进行内存分配使用的是zmalloc，对应源文件为：`zmalloc.h`，
 
 zmalloc的作用是对内存分配进行一些统计，使我们能清楚知道现在分配了多少总内存。
 
+<!-- more -->
+
 ## 两个宏
 
 - USE_TCMALLOC
