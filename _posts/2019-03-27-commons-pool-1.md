@@ -1,6 +1,6 @@
 ---
 layout: post
-title: commons-pool 池对象的生命周期
+title: commons-pool 源码分析：池对象的生命周期
 date:   2019-03-27 08:50:00 +0800
 tags: [对象池, 连接池, 线程池]
 ---
