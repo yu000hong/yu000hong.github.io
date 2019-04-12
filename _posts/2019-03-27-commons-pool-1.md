@@ -78,13 +78,15 @@ tags: [对象池, 连接池, 线程池]
 
 **use()**
 
-这个方法用于设置对象的`lastUseTIme`，避免对象被丢弃。
+这个方法用于设置对象的`lastUseTime`，避免对象被丢弃。
 
 ## 状态转移图
 
 ![](/static/image/201904/commons-pool-states.png)
 
+这里需要说明的是：
 
+> 任何状态都有可能因为某些原因而进行**INVALID**状态
 
 
 
