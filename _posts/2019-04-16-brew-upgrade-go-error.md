@@ -82,7 +82,7 @@ git config https.proxy socks5://127.0.0.1:1086
 
 `127.0.0.1:1086` 这个端口号是Shadowsocks在Mac下的默认端口，可以Shadowsocks偏好设置的高级Tab下设置，如图：
 
-![](/static/img/201904/shadowsocks-setting.png)
+![](/static/image/201904/shadowsocks-setting.png)
 
 但是，这样设置完之后，还是报同样的错误，使用`brew config`看下Homebrew的配置：
 
