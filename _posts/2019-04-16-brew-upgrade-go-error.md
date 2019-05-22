@@ -117,5 +117,15 @@ Xcode: 8.0
 
 再次运行`brew upgrade go`，没有报错，更新升级成功！
 
+**配置http_proxy&https_proxy**
+
+通过配置git proxy之后，上面的问题解决了，但是使用`go get google.golang.org/grpc`还是会报网络超时异常。这种情况下，只能设置`http_proxy`和`https_proxy`两个环境变量来解决了。
+
+```bash
+$ export http_proxy=socks5://127.0.0.1:1086
+$ export https_proxy=socks5://127.0.0.1:1086
+```
+
+添加上面两句到`.bash_profile`，然后**source**一下，就可以开心地使用**go get**了～
 
 
