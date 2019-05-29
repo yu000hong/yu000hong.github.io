@@ -79,7 +79,7 @@ Heap dump file created [27987840 bytes in 0.142 secs]
 
 HotSpot不区分虚拟机栈和本地方法栈，栈容量只能由-Xss参数设定。
 
-- StackOverFlow：线程申请的栈深度超过允许的最大深度
+- StackOverflowError：线程申请的栈深度超过允许的最大深度
   ```
   Exception in thread "main" java.lang.StackOverflowError
     at com.jvm.OutOfMemoryError.JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:26)
