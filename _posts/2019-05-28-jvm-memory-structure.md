@@ -11,7 +11,7 @@ tags: [JVM, JMM]
 
 ### JVM内存结构
 
-![](static/image/201905/jvm-memory-structure.png)
+![](/static/image/201905/jvm-memory-structure.png)
 
 JVM内存结构主要有三大块：
 
