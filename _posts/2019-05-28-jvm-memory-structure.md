@@ -21,9 +21,9 @@ JVM内存结构主要有三大块：
 
 **堆内存**
 
-堆内存是JVM中最大的一块，由年轻代和老年代组成；
+堆内存是JVM中最大的一块，由新生代和老年代组成；
 
-而年轻代内存又被分成三部分，Eden空间、From Survivor空间、To Survivor空间，默认情况下年轻代按照`8:1:1`的比例来分配；
+而新生代内存又被分成三部分，Eden空间、From Survivor空间、To Survivor空间，默认情况下新生代按照`8:1:1`的比例来分配；
 
 **方法区**
 
@@ -53,7 +53,7 @@ JVM内存结构主要有三大块：
 
 **-XX:ThreadStackSize**：设置每个线程的堆栈大小
 
-**-Xss**：-Xss是-XX:ThreadStackSize的别名，但`-XX`选型不稳定，有可能在以后的版本不支持
+**-Xss**：-Xss是-XX:ThreadStackSize的别名，但`-XX`选项不稳定，有可能在以后的版本不支持
 
 **-XX:MaxTenuringThreshold**：控制对象能经历多少次Minor GC才晋升到老年代，默认值是15
 
