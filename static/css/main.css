@@ -47,6 +47,7 @@ pre code {
 /* Layout */
 .main-layout {
   background: #fff;
+  padding: 0 50px;
 }
 .sidebar-nav {
   margin: 0;
