@@ -83,6 +83,6 @@ connection.setRequestMethod("GET");
 connection.connect();
 InputStream input = connection.getInputStream();
 List<String> lines = IOUtils.readLines(input, StandardCharsets.UTF_8);
-{% highlight java %}
+{% endhighlight %}
 
 
