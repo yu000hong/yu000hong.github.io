@@ -36,13 +36,13 @@ ERROR method chacha20-ietf-poly1305 not supported
 
 ### 安装方法
 
-1. 使用`go get`安装
+**1. 使用`go get`安装**
 
 ```go get -u -v github.com/shadowsocks/go-shadowsocks2```
 
 `go get`安装存在一个问题，就是很多golang包在国内是无法下载下来的。
 
-2. 使用`go mod` & `goproxy.io`代理
+**2. 使用`go mod` & `goproxy.io`代理**
 
 ```
 export GO111MODULE=on
