@@ -57,7 +57,7 @@ go build
 ### 配置使用
 
 ```
-nohup shadowsocks2 -c 'ss://AEAD_CHACHA20_POLY1305:54sJGD8sDUSa@your-shadowsocks-server：10080' -verbose -socks 127.0.0.1:1080 &
+nohup shadowsocks2 -c 'ss://AEAD_CHACHA20_POLY1305:54sJGD8sDUSa@your-shadowsocks-server:10080' -verbose -socks 127.0.0.1:1080 &
 ```
 
 这样我们就启动了shadowsocks2客户端！
