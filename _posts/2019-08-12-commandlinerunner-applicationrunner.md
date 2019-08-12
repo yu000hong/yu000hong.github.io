@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Spring Boot] CommandLineRunner & ApplicationRunner
+title: 「Spring Boot」CommandLineRunner & ApplicationRunner
 date:   2019-08-12 11:30:00 +0800
 tags: [Spring Boot]
 ---
