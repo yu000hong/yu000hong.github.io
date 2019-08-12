@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 「SpringBoot」spring.factories & SpringFactoriesLoader
+title: 「Spring」spring.factories & SpringFactoriesLoader
 date:   2019-08-12 16:30:00 +0800
-tags: [SpringBoot]
+tags: [Spring]
 ---
 
 Spring Framework 内部使用一种工厂加载机制(Factory Loading Mechanism)。这种机制使用SpringFactoriesLoader完成，SpringFactoriesLoader使用loadFactories方法加载并实例化从META-INF目录里的spring.factories文件出来的工厂，这些spring.factories文件都是从classpath里的jar包里找出来的。
