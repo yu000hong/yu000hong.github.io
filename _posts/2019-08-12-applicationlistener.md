@@ -96,6 +96,7 @@ ApplicationEvent
       |             |----ContextStartedEvent
       |
     .....
+```
 
 ## 区别与联系
 
