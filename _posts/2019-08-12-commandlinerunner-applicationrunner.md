@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 「Spring Boot」CommandLineRunner & ApplicationRunner
+title: 「SpringBoot」CommandLineRunner & ApplicationRunner
 date:   2019-08-12 11:30:00 +0800
-tags: [Spring Boot]
+tags: [SpringBoot]
 ---
 
 启动成功后，我们可以使用如下几种方式进行初始化操作：
