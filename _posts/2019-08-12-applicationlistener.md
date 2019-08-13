@@ -65,7 +65,7 @@ public interface SpringApplicationRunListener {
 
 我们在程序中可以设置多个`SpringApplicationRunListener`，有个专门的类来处理多个监听器：`SpringApplicationRunListeners`。在程序启动的时候，SpringBoot会从**META-INF/spring.factories**文件中读取所有设置的SpringApplicationRunListener，然后由SpringApplicationRunListeners来统一管理。
 
-> 我们自己定义的SpringApplicationRunListener有一个要求：必须包含两个参数分别为`SpringApplication application`,`String[] args`的构造方法！其中**args**参数就是SpringBoot启动是命令行传入的参数！
+我们自己定义的SpringApplicationRunListener有一个要求：必须包含两个参数分别为`SpringApplication application`,`String[] args`的构造方法！其中**args**参数就是SpringBoot启动是命令行传入的参数！
 
 ## ApplicationListener
 
@@ -96,7 +96,7 @@ ApplicationEvent
       |             |----ContextStartedEvent
       |
     .....
-    
+
 ## 区别与联系
 
 首先说说联系，SpringBoot定义了一个SpringApplicationRunListener的实现类：`EventPublishingRunListener`，这个类的作用就是监听SpringBoot生命周期，并将生命周期变化事件发布到所有的**ApplicationListener**。
