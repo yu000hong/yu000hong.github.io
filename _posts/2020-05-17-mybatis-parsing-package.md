@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 「MyBatis源码分析」(一)基础解析包
+title: 「MyBatis源码分析」基础解析包
 date:   2020-05-17 12:00:00 +0800
 tags: [MyBatis]
 ---
@@ -18,20 +18,20 @@ MyBatis源码分析系列我们从最基本的配置文件解析开始，今天�
 
 我先说结论吧，我们在配置MyBatis时，可以利用`参数替换`特性，在配置文件中使用特定的参数。MyBatis里面可以使用三种方式：
 
-- ${param}
-- #{param}
-- @{param}
+- `${param}`
+- `#{param}`
+- `@{param}`
 
 并且，我们可以使用参数默认值(前提是必须启用默认参数值)：
 
-- ${param:defaultValue}
-- #{param:defaultValue}
-- @{param:defaultValue}
+- `${param:defaultValue}`
+- `#{param:defaultValue}`
+- `@{param:defaultValue}`
 
 两个可控配置属性：
 
-- org.apache.ibatis.parsing.PropertyParser.enable-default-value: 是否启用默认参数值，默认值false
-- org.apache.ibatis.parsing.PropertyParser.default-value-separator: 参数与默认值分隔符，默认值冒号
+- **org.apache.ibatis.parsing.PropertyParser.enable-default-value**: 是否启用默认参数值，默认值false
+- **org.apache.ibatis.parsing.PropertyParser.default-value-separator**: 参数与默认值分隔符，默认值冒号
 
 这两个属性具体在哪里配置，待我们分析了`Configuration`之后再来补充[TODO]。
 
