@@ -9,15 +9,13 @@ Spring Framework 内部使用一种工厂加载机制(Factory Loading Mechanism)
 
 ## spring.factories
 
-**spring.factories**文件是以Java的Properties格式存在，key是接口、抽象类或注解的全名、value是以逗号 "," 分隔的实现类。
-
-> **注意**：除了接口和抽象类，key还可以是注解；value是接口和抽象类的实现类，或者具有相应注解的实现类。只要满足：`keyType.isAssignalbeFrom(valueType)`。
-
-比如：
+**spring.factories**文件是以Java的Properties格式存在，key是接口、抽象类或注解的全名，value是以逗号 "," 分隔的实现类。比如：
 
 ```
 example.MyService=example.MyServiceImpl1,example.MyServiceImpl2
 ```
+
+> **注意**：除了接口和抽象类，key还可以是注解；value是接口和抽象类的实现类，或者具有相应注解的实现类。只要满足：`keyType.isAssignalbeFrom(valueType)`。
 
 ## SpringFactoriesLoader
 
