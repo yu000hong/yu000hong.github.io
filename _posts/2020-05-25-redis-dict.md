@@ -48,7 +48,7 @@ typedef struct dictEntry {
 
 `dictEntry`有三个字段:
 
-- key: 健对应的指针
+- key: 键对应的指针
 - v: 值(浮点型、无符号长整型、有符号长整型、指针)
 - next: next指针
 
@@ -79,9 +79,9 @@ typedef struct dictEntry {
 
 **字典指纹**
 
-我们在创建非安全的字典迭代器的时候，会给字典生成一个指纹，这个指纹由`dictht.table`,`dictht.size`,`dictht.used`三个字段进行一系列异或操作生成。
+我们在创建非安全的字典迭代器的时候，会给字典生成一个指纹，这个指纹由`dictht.table`, `dictht.size`, `dictht.used`三个字段进行一系列异或操作生成。
 
-如果在遍历过程中，字典有任何操作导致这三个字段改变的话，字典的指纹也会发生改变。在迭代完成之后，会检查指纹是否一致，如果指纹不一致，说明发生毁坏性操作，进程会直接退出！
+如果在遍历过程中，字典有任何操作导致这三个字段改变的话，字典的指纹也会发生改变。在迭代完成之后，会检查指纹是否一致，如果指纹不一致，说明发生了毁坏性操作，进程会直接退出！
 
 **迭代器创建&销毁**
 
@@ -107,7 +107,7 @@ dictIterator *dictGetSafeIterator(dict *d) {
 void dictReleaseIterator(dictIterator *iter)
 {
     if (!(iter->index == -1 && iter->table == 0)) {
-        if (iter->safe) //安全模式迭代器要处理字段的iterators字段
+        if (iter->safe) //安全模式迭代器要处理字典的iterators字段
             iter->d->iterators--;
         else //非安全模式迭代器要校验字典指纹是否相等
             assert(iter->fingerprint == dictFingerprint(iter->d));
